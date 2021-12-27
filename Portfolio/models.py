@@ -8,9 +8,11 @@ class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_number = models.IntegerField()
-    email = models.EmailField(max_length=20)
+    email = models.EmailField(max_length=50)
 
-
+    def __str__(self):
+        return f"{self.user_name}"
+    
     
 
 
@@ -20,3 +22,7 @@ class Profile(models.Model):
     plan = models.CharField(max_length=500)
     story = models.CharField(max_length=500)
     user_name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f"{self.user_name} {self.name}"
+    
