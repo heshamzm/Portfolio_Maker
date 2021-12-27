@@ -17,10 +17,10 @@ class User(models.Model):
 
 
 class Profile(models.Model):
-    name = models.CharField(max_length=500)
-    about = models.CharField(max_length=500)
-    plan = models.CharField(max_length=500)
-    story = models.CharField(max_length=500)
+    name = models.CharField(max_length=500, null= True, blank=True)
+    about = models.CharField(max_length=500, null=True, blank=True)
+    plan = models.CharField(max_length=500, null=True, blank=True)
+    story = models.CharField(max_length=500, null= True, blank=True)
     user_name = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
