@@ -6,10 +6,41 @@
 
 {% block content %}
     <div class="whitebox">
-        <p>hello!</p>
+        <p>Please fill the form below to continue!</p>
     </div>
 
+    <!--
     <div class="whitebox">
-        
+        <form action="" method = "POST">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class = "userform">
+                {{ field.label_tag}}
+                {{ field }}
+                {{ field.errors }}
+                <br>
+            </div>
+            {% endfor %}
+            <button type="submit"> Next </button>
+        </form>
     </div>
+    -->
+
+    <div class="whitebox1">
+        <form action="" method = "POST">
+            {% csrf_token %}
+            {% for field in form %}
+                
+                <div class="mb-3">
+                    {{ field.label_tag}}
+                    {{ field }}
+                    {{ field.errors }}
+                </div>
+                
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Next</button>
+        </form>
+    </div>
+
+
 {% endblock content %}
